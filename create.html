@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-Link Create</title>
+    <link rel="icon" href="logopng.png">
+    <style>
+        body {
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(back.jpg);
+        background-size: cover;
+        background-position: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #06b0d7;
+            border-radius: 5px;
+            text-align: center;
+            background-color: #b5e2f2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: sans-serif;
+        }
+
+        .infoBlock {
+            border: 1px solid #1a1717;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            text-align: left;
+            font-family: sans-serif;
+        }
+
+        .infoBlock label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-family: sans-serif;
+        }
+
+        .infoBlock input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        #submitBtn {
+            padding: 10px 20px;
+            background-color: #06b0d7;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            font-family: sans-serif;
+        }
+
+        #submitBtn:hover {
+            background-color: #4248ee;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="infoBlocks">
+        <!-- Information blocks will be dynamically added here -->
+    </div>
+    <button id="submitBtn">Submit</button>
+</div>
+
+<script>
+    // Function to create information blocks
+    function createInfoBlock(labelText, inputType) {
+        var infoBlocks = document.getElementById('infoBlocks');
+        var block = document.createElement('div');
+        block.classList.add('infoBlock');
+        block.innerHTML = `
+            <label for="${labelText}">${labelText}:</label>
+            <input type="${inputType}" id="${labelText}" name="${labelText}">
+        `;
+        infoBlocks.appendChild(block);
+    }
+
+    // Create information blocks for each section
+    createInfoBlock('Name', 'text');
+    createInfoBlock('Company Name', 'text');
+    createInfoBlock('Info', 'text');
+    createInfoBlock('Pictures', 'file');
+    createInfoBlock('Contact No', 'text');
+    createInfoBlock('Products', 'text');
+    createInfoBlock('Delivery Options', 'text');
+    createInfoBlock('Industry Sector', 'text');
+</script>
+
+</body>
+</html>
